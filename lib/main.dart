@@ -1,3 +1,4 @@
+import 'package:first_demo_flutter/home_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,11 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-        home: Material(
-            child: Center(
-      child: Container(
-        child: Text("Welcome to Flutter First demo App ."),
-      ),
-    )));
+      home: HomePage(),
+    );
   }
 }
