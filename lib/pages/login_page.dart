@@ -21,7 +21,7 @@ class _LoginPageState extends State<LoginPage> {
                 height: 40.0,
               ),
               Image.asset(
-                "assets/images/ic_login.png",
+                "assets/images/login_image.png",
                 fit: BoxFit.cover,
               ),
               SizedBox(
@@ -47,6 +47,12 @@ class _LoginPageState extends State<LoginPage> {
                         hintText: "Enter username",
                         labelText: "Username",
                       ),
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "Username can't be empty";
+                        }
+                        return null;
+                      },
                       onChanged: (value) {
                         name = value;
                         setState(() {});
@@ -69,12 +75,15 @@ class _LoginPageState extends State<LoginPage> {
                           changeButton = true;
                         });
                         await Future.delayed(Duration(seconds: 1));
-                        Navigator.pushNamed(context, MyRoute.homeRoute);
+                        await Navigator.pushNamed(context, MyRoute.homeRoute);
+                        setState(() {
+                          changeButton = false;
+                        });
                       },
                       child: AnimatedContainer(
                         duration: Duration(seconds: 1),
-                        width: changeButton ? 50 : 150,
-                        height: 50,
+                        width: changeButton ? 45 : 150,
+                        height: 45,
                         alignment: Alignment.center,
                         child: changeButton
                             ? Icon(
@@ -86,12 +95,12 @@ class _LoginPageState extends State<LoginPage> {
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 18),
+                                    fontSize: 16),
                               ),
                         decoration: BoxDecoration(
                           color: Colors.deepPurple,
                           borderRadius:
-                              BorderRadius.circular(changeButton ? 50 : 8),
+                              BorderRadius.circular(changeButton ? 45 : 8),
                         ),
                       ),
                     ),
