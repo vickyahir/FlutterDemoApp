@@ -35,6 +35,7 @@ class _HomePageState extends State<HomePage> {
     final dummyList = List.generate(20, (index) => CatalogModel.items[0]);
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: Text("Catalog App"),
       ),
       body: Padding(
